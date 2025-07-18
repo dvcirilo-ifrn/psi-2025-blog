@@ -1,9 +1,9 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 {% block title %}Início{% endblock title %}
-{% block titulo %}Blog do PSI{% endblock titulo %}
-{% block imagem_header %}{% static 'blog/img/home-bg.jpg' %}{% endblock %}
-{% block subtitulo %}Blog da disciplina de Programação de Sistemas para Internet{% endblock %}
+{% block titulo %}{{ blog.titulo }}{% endblock titulo %}
+{% block imagem_header %}{{ blog.banner.url }}{% endblock %}
+{% block subtitulo %}{{ blog.subtitulo }}{% endblock %}
 {% block content %}
 <!-- Main Content -->
 <div class="container px-4 px-lg-5">

@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Postagem, Blog
 
 postagens = [
     {
@@ -32,7 +33,8 @@ postagens = [
 
 def index(request):
     context = {
-        "postagens": postagens,
+        "postagens": Postagem.objects.all(),
+        "blog": Blog.objects.first(),
     }
     return render(request, "blog/index.html", context)
 
