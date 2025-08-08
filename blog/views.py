@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Postagem, Blog
 
 postagens = [
@@ -42,7 +42,8 @@ def sobre(request):
     return render(request, "blog/sobre.html")
 
 def post(request, id_post):
-    return render(request, "blog/post.html", postagens[id_post-1])
+    post = get_object_or_404(Postagem, pk=id_post)
+    return render(request, "blog/post.html", {'post': post})
 
 def contato(request):
     return render(request, "blog/contato.html")

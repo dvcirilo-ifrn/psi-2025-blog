@@ -15,6 +15,7 @@ class Postagem(models.Model):
     subtitulo = models.CharField(max_length=50)
     autor = models.ForeignKey(Autor, on_delete=models.CASCADE)
     data = models.CharField(max_length=50)
+    imagem = models.ImageField(upload_to='posts/', blank=True)
 
     def __str__(self):
         return f"{self.titulo} - {self.data}"
